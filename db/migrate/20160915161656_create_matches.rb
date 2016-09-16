@@ -3,7 +3,8 @@ class CreateMatches < ActiveRecord::Migration[5.0]
     create_table :matches do |t|
       t.string :name
       t.datetime :star_time
-      t.leguage :string
+      t.string :language
+      t.integer :maximum_players
 
       t.timestamps
     end
