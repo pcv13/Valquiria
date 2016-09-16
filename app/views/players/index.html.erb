@@ -1,0 +1,12 @@
+<h1>HI</h1>
+
+
+<% @players.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+
+      </tr>
+    <% end %>
+
+<%= link_to "log out", destroy_player_session_path , method: :delete %>    
