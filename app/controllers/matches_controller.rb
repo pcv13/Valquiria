@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+<<<<<<< HEAD
 
 def index
   @matches = Match.all
@@ -33,4 +34,6 @@ private
   def match_params
     params.require(:match).permit(:name, :language, :game_id,:owner_id,:star_time,:mastered)
   end
+=======
+>>>>>>> bf6136f1f4a987b88bf68a673029293171318f94
 end

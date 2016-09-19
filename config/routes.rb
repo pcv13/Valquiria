@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :players
+<<<<<<< HEAD
   resources :matches
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -23,5 +24,10 @@ Rails.application.routes.draw do
   get "/players/:id", to:"players#show",as: 'player'
 
 
+=======
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+get "/", to:"games#index"
+>>>>>>> bf6136f1f4a987b88bf68a673029293171318f94
 
 end
