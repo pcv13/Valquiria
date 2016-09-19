@@ -3,7 +3,6 @@ class Player < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-<<<<<<< HEAD
 
    	before_save { self.email = email.downcase }
 
@@ -18,8 +17,6 @@ class Player < ApplicationRecord
    		self.tasks.count
    	end
 
-=======
->>>>>>> bf6136f1f4a987b88bf68a673029293171318f94
   has_many :match_players
   has_many :matches,through: :match_players
 end

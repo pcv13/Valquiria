@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-<<<<<<< HEAD
+
 
   def index
     @players = Player.all
@@ -17,7 +17,4 @@ class PlayersController < ApplicationController
       params.require(:player).permit(:name, :email)
     end
 
-
-=======
->>>>>>> bf6136f1f4a987b88bf68a673029293171318f94
 end
