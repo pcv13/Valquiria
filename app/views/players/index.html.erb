@@ -1,12 +1,12 @@
 <h1>HI</h1>
 
 
-<% @players.each do |user| %>
+<% @players.each do |player| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-
+        <td>Name:<%= player.name %> ; </td>
+        <td>Email:<%= player.email %></td>
       </tr>
+      <p></p>
     <% end %>
 
-<%= link_to "log out", destroy_player_session_path , method: :delete %>    
+<%= link_to "log out", destroy_player_session_path , method: :delete %>

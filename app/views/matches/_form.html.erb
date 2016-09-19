@@ -1,0 +1,49 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mastered %><br>
+    <%= f.check_box :mastered %>
+  </div>
+
+  <div class="field">
+    <%= f.label :star_time %><br>
+    <%= f.datetime_field :star_time %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.select(:language) do %>
+      <% [['Spanish','Spanish'],['English','English'],['Portuguese','Portuguese'],['Russian','Russian'],['German','German'],['French','French'],['Italian','Italian']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>  </div>
+
+
+  <div class="field">
+    <%= f.label :game_id %><br>
+    <%= f.collection_select(:game_id, Game.all, :id, :name) %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
