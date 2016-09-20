@@ -37,18 +37,16 @@ ActiveRecord::Schema.define(version: 20160916124139) do
     t.datetime "star_time"
     t.string   "language"
     t.integer  "maximum_players"
-<<<<<<< HEAD
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "game_id"
     t.boolean  "completed",       default: false
     t.boolean  "mastered",        default: false
     t.integer  "owner_id"
-=======
+
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "game_id"
->>>>>>> bf6136f1f4a987b88bf68a673029293171318f94
     t.index ["game_id"], name: "index_matches_on_game_id"
   end
 

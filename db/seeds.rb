@@ -13,7 +13,7 @@ player = Player.create([{name: "Rocio", email: "Rocio@mail.com",password: "12345
     {name: "Pablo", email: "Pablo@mail.com",password: "12345678" },
     {name: "Carlos", email: "Carlos@mail.com",password: "12345678" }])
 
-matches = Match.create([{name: "Match1", game_id: 1},{ name: "Match2" ,game_id: 2}])
+
 
 puts "seeds created"
 
