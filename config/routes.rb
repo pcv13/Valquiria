@@ -19,13 +19,12 @@ Rails.application.routes.draw do
 #  pero con diferente        PUT    /players(.:format)               devise/registrations#update
 #  metodo                    DELETE /players(.:format)               devise/registrations#destroy
 
-  get "/", to:"players#index",as: 'players'
   get "/players/:id", to:"players#show",as: 'player'
 
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-get "/", to:"games#index"
+get "/", to:"matches#index", as: 'index'
 
 end

@@ -1,5 +1,5 @@
 <h1>HI</h1>
-
+<!--
 
 <% @matches.each do |match| %>
       <tr>
@@ -11,4 +11,25 @@
       <p></p>
     <% end %>
 
-<%= link_to "log out", destroy_player_session_path , method: :delete %>
+ -->
+
+
+
+
+<html>
+  <head>
+  	<title></title>
+  </head>
+  <body>
+    <div class = "wrapper">
+
+      <p>
+        <input  type="button" class="btn_menu" onclick="#" value="BUSCAR">
+        <button class="btn_menu"> <%= link_to "CREAR" ,new_match_path%> </button>
+      </p>
+
+    </div>
+    <%= link_to "log out", destroy_player_session_path , method: :delete %>
+  </body>
+
+</html>
