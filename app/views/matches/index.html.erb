@@ -28,6 +28,49 @@
         <button class="btn_menu"> <%= link_to "CREAR" ,new_match_path%> </button>
       </p>
 
+      <h1>Match</h1>
+
+      <%= form_for_filterrific @filterrific,html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+        <div>
+          Search
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(
+            :search_query,
+            class: 'filterrific-periodically-observed'
+          ) %>
+        </div>
+        <div>
+          Game
+          <%= f.select(
+            :with_game_id,
+            @filterrific.select_options[:with_game_id],
+            { include_blank: '- Any -' }
+          ) %>
+        </div>
+        <div>
+          Registered after
+          <%= f.text_field(:with_created_at_gte, class: 'js-datepicker') %>
+        </div>
+        <div>Sorted by
+          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+        </div>
+        <div>
+          <%= link_to(
+            'Reset filters',
+            reset_filterrific_url,
+          ) %>
+        </div>
+        <%# add an automated spinner to your form when the list is refreshed %>
+        <%= render_filterrific_spinner %>
+
+
+        <%= f.submit 'Filter' %>
+      <% end %>
+
+      <%= render(
+        partial: 'matches/list',
+        locals: { match: @matches }
+      ) %>
     </div>
     <%= link_to "log out", destroy_player_session_path , method: :delete %>
   </body>
