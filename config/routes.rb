@@ -29,6 +29,11 @@ patch "/matches/:id", to:"matches#update"
 post "/matches/:id",to:"matches#join_match", as:"join_match"
 get "/matches/:id/valquiria",to:"matches#valquiria", as:"valquiria"
 
+namespace :api do
+  namespace :v1 do
+    get "/matches/filter", to: "matches#index"
+  end
+end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

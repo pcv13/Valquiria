@@ -11,6 +11,51 @@
 
       <h1>Match</h1>
 
+      <div>
+        <p class="text_gray">LANGUAGE</p>
+        <p>  <select id=language name="select">
+          <option value="Spanish">Spanish </option>
+          <option value="English">English </option>
+          <option value="Portuguese">Portuguese </option>
+          <option value="Russian">Russian </option>
+          <option value="German">German </option>
+          <option value="French">French </option>
+          <option value="Italian">Italian </option>
+        </select> </p>
+        <p class="text_gray">GAME:</p>
+
+        <p>  <select id=game name="select">
+            <option value=1>LLamada de cthulh </option>
+            <option value=2>Savage Worlds </option>
+            <option value=3>GURPS </option>
+            <option value=4>The World of Darkness (Vampire) </option>
+            <option value=5>The World of Darkness (Mage) </option>
+            <option value=6>The World of Darkness (Mage) </option>
+            <option value=7>The World of Darkness (Mage) </option>
+            <option value=8>Fiasco </option>
+          </select> </p>
+
+            <input  type="button" class="btn_menu" onclick="" value="FILTRAR">
+
+            <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Game</th>
+                  <th>Language</th>
+                  <th>Registered at</th>
+                </tr>
+                <% @matches.each do |match| %>
+                  <tr id= "table">
+                    <td><%= link_to(match.name, match_path(match)) %></td>
+                    <td><%= match.game.name %></td>
+                    <td><%= match.language %></td>
+                    <td><%= match.created_at %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </div>
+      </div>
+</div>
   </body>
 
 </html>
