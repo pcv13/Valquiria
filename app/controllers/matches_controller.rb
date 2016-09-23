@@ -31,6 +31,7 @@ end
 
 def show
   @match = Match.find(params[:id])
+  @player= Player.all
 end
 
 def new
@@ -72,6 +73,27 @@ def update
     end
   end
 end
+
+
+  def join_match
+
+    @match=Match.find(params[:id])
+    d = false
+    @match.players.each do |player|
+      if player.id == current_player.id
+        d=true
+        @match.match_players.find_by(player_id:current_player.id).destroy
+      end
+    end
+    if d == false
+      current_player.matches.push(@match)
+    end
+    if @match.save
+    redirect_to match_path
+    end
+  end
+
+
 
 
 private

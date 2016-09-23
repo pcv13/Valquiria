@@ -3,6 +3,14 @@ class Match < ApplicationRecord
   has_many :match_players
   has_many :players,through: :match_players
 
+
+
+
+
+
+
+
+
   filterrific(
   default_filter_params: { sorted_by: 'created_at_desc' },
   available_filters: [
@@ -47,6 +55,7 @@ scope :with_game_name, lambda { |game_name|
   where('games.name = ?', country_name).joins(:game)
 }
   scope :search_query, lambda { |query|
+
     # Searches the match   table on the 'first_name' and 'last_name' columns.
     # Matches using LIKE, automatically appends '%' to each term.
     # LIKE is case INsensitive with MySQL, however it is case

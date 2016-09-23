@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :players
-  resources :matches
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 #   new_player_session       GET    /players/sign_in(.:format)       devise/sessions#new
@@ -19,7 +18,16 @@ Rails.application.routes.draw do
 #  pero con diferente        PUT    /players(.:format)               devise/registrations#update
 #  metodo                    DELETE /players(.:format)               devise/registrations#destroy
 
-  get "/players/:id", to:"players#show",as: 'player'
+get "/players/:id", to:"players#show",as: 'player'
+
+post "/matches", to:"matches#create",as: "matches"
+get "/matches/new", to:"matches#new",as: "new_match"
+get "/matches/:id/edit", to:"matches#edit",as: "edit_match"
+get "/matches/:id", to:"matches#show",as: "match"
+delete "/matches/:id", to:"matches#destroy"
+patch "/matches/:id", to:"matches#update"
+post "/matches/:id",to:"matches#join_match", as:"join_match"
+
 
 
 

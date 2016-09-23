@@ -1,11 +1,25 @@
-<p>
+
+
+
+  <div class = "wrapper">
+<p class="text_gray">
   <strong>Game:</strong>
   <%= @match.game.name %>
 </p>
 
-<p>
+<p class="text_gray">
   <strong>language:</strong>
   <%= @match.language %>
 </p>
+<p class="text_gray">
+  <strong>Hora de inicio:</strong>
+  <%= @match.star_time %>
+</p>
+</div>
 
-<%= link_to 'Back', player_path %>
+<img src="<%= @match.game.image %>" alt="rss feed" />
+<%if @match.players.include?(current_player)%>
+   <button class="btn_menu"> <%= link_to "ABANDONAR" ,join_match_path, method: :post %> </button>
+<%else%>
+  <button class="btn_menu"> <%= link_to "Unirse" ,join_match_path, method: :post %> </button>
+<%end%>

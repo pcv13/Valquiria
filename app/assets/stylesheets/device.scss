@@ -11,6 +11,13 @@ body{
   // margin-left: 3%;
   // display: inline-block;  parameter imagen fondo
  text-decoration:none;
+ margin-bottom: 1%;
+}
+
+
+.title{
+  font:70px Oswald;
+
 }
 
 h1{
@@ -33,9 +40,18 @@ h1{
 
 }
 
-.form{
+.text_list{
+  font:17px Open Sans;
+  color:#cccccc;
+  text-shadow:#000 0px 1px 5px;
+  margin-bottom:30px;
+  text-decoration:none;
 
+}
+
+table{
   width:100%;
+  text-align: center;
 }
 
 input[type="text"],input[type="email"],input[type="password"],button{
@@ -58,7 +74,6 @@ input[type="submit"],input[type="button"],button{
   padding:15px;
   border-radius:5px;
   outline:none;
-  border:none;
 
   background-image: linear-gradient(#ff8300 0%, #de5800 100%);
   font:14px Oswald;
@@ -67,7 +82,7 @@ input[type="submit"],input[type="button"],button{
   text-shadow:#000 0px 1px 5px;
   border:1px solid #000;
   opacity:0.7;
-	-webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
+	-webkit-box-shaow: 0 8px 6px -6px rgba(0,0,0,0.7);
   -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
 	box-shadow: 0 8px 6px -6px rgba(0,0,0,0.7);
   border-top:1px solid rgba(255,255,255,0.8)!important;
@@ -78,6 +93,13 @@ input[type="submit"],input[type="button"],button{
 .img_background{
   display: inline-block;
 
+}
+img{
+  width:30%;
+  height: 36%;
+  margin-left: 32%;
+  margin-right: 32%;
+  margin-bottom: 1%;
 }
 input:focus{
   box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.7), 0 1px 1px -1px rgba(255,255,255,0.3);
@@ -95,6 +117,7 @@ button:hover{
   cursor:pointer;
 }
 
+
 p >.btn_menu{
   display: inline-block;;
   width:40%;
@@ -102,12 +125,13 @@ p >.btn_menu{
   margin-left: 4%;
   margin-right: 5%;
   text-decoration:none;
+}
 a{
     text-decoration:none;
     color: white;
 }
 
-}
+
 footer{
   background:#8e6548;
   opacity: 0.5;
