@@ -1,30 +1,8 @@
 class MatchesController < ApplicationController
 
 def index
-  @games=Game.all
-
-  @matches=Match.all { |e|  }
-  @filterrific = initialize_filterrific(
-       Match,
-       params[:filterrific],
-       select_options: {
-         sorted_by: Match.options_for_sorted_by,
-         with_game_id: Game.options_for_select
-       },
-       persistence_id: 'shared_key',
-       default_filter_params: {},
-       available_filters: [],
-     ) or return
-     respond_to do |format|
-       format.html
-       format.js
-     end
-
-
-    rescue ActiveRecord::RecordNotFound => e
-       # There is an issue with the persisted param_set. Reset it.
-       puts "Had to reset filterrific params: #{ e.message }"
-       redirect_to(reset_filterrific_url(format: :html)) and return
+@matches=Match.all
+@games = Game.all
 
 end
 
@@ -93,13 +71,14 @@ end
     end
   end
 
-
-
+def valquiria
+  @match=Match.find(params[:id])
+end
 
 private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def match_params
-    params.require(:match).permit(:name, :language, :game_id,:owner_id,:star_time,:mastered)
+    params.require(:match).permit(:name, :language, :game_id,:owner_id,:star_time,:mastered,:maximum_players)
   end
 end

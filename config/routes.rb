@@ -27,7 +27,7 @@ get "/matches/:id", to:"matches#show",as: "match"
 delete "/matches/:id", to:"matches#destroy"
 patch "/matches/:id", to:"matches#update"
 post "/matches/:id",to:"matches#join_match", as:"join_match"
-
+get "/matches/:id/valquiria",to:"matches#valquiria", as:"valquiria"
 
 
 
