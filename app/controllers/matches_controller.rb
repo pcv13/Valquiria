@@ -25,6 +25,7 @@ def create
   respond_to do |format|
     if @match.save
       format.html { redirect_to @match, notice: 'Match was successfully created.' }
+      create_chat(@match.name)
     else
       format.html { render :new }
     end
@@ -66,7 +67,7 @@ end
       current_player.matches.push(@match)
     end
     if @match.save
-    redirect_to match_path
+    redirect_to index_path
     end
   end
 
@@ -74,7 +75,9 @@ def valquiria
   @match=Match.find(params[:id])
 end
 
-
+def create_chat(name)
+  ChatRoom.create(title:@match.name,player_id: current_player.id)
+end
 
 
 

@@ -51,6 +51,6 @@ mount ActionCable.server => '/cable'
   get "/matches/:id/valquiria",to:"matches#valquiria", as:"valquiria"
 
 
-get "/1", to:"matches#index", as: 'index1'
+get "/", to:"matches#index", as: 'index'
 
 end

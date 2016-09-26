@@ -15,6 +15,7 @@ class ChatRoomsController < ApplicationController
     else
       render 'new'
     end
+    
   end
 
   def show
