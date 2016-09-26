@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919100833) do
+ActiveRecord::Schema.define(version: 20160926105356) do
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_chat_rooms_on_player_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +48,16 @@ ActiveRecord::Schema.define(version: 20160919100833) do
     t.boolean  "mastered",        default: false
     t.integer  "owner_id"
     t.index ["game_id"], name: "index_matches_on_game_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "player_id"
+    t.integer  "chat_room_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["player_id"], name: "index_messages_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|

@@ -18,17 +18,6 @@ Rails.application.routes.draw do
 #  pero con diferente        PUT    /players(.:format)               devise/registrations#update
 #  metodo                    DELETE /players(.:format)               devise/registrations#destroy
 
-get "/players/:id", to:"players#show",as: 'player'
-
-post "/matches", to:"matches#create",as: "matches"
-get "/matches/new", to:"matches#new",as: "new_match"
-get "/matches/:id/edit", to:"matches#edit",as: "edit_match"
-get "/matches/:id", to:"matches#show",as: "match"
-delete "/matches/:id", to:"matches#destroy"
-patch "/matches/:id", to:"matches#update"
-post "/matches/:id",to:"matches#join_match", as:"join_match"
-get "/matches/:id/valquiria",to:"matches#valquiria", as:"valquiria"
-
 
 namespace :api do
   namespace :v1 do
@@ -39,8 +28,29 @@ namespace :api do
 end
 
 
+
+
+resources :chat_rooms, only: [:new, :create, :show, :index]
+get "/chat_rooms",to: 'chat_rooms#index', as:'chat_rooms_index'
+
+mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-get "/", to:"matches#index", as: 'index'
+
+
+
+  get "/players/:id", to:"players#show",as: 'player'
+
+  post "/matches", to:"matches#create",as: "matches"
+  get "/matches/new", to:"matches#new",as: "new_match"
+  get "/matches/:id/edit", to:"matches#edit",as: "edit_match"
+  get "/matches/:id", to:"matches#show",as: "match"
+  delete "/matches/:id", to:"matches#destroy"
+  patch "/matches/:id", to:"matches#update"
+  post "/matches/:id",to:"matches#join_match", as:"join_match"
+  get "/matches/:id/valquiria",to:"matches#valquiria", as:"valquiria"
+
+
+get "/1", to:"matches#index", as: 'index1'
 
 end

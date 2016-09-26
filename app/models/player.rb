@@ -5,6 +5,10 @@ class Player < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    	before_save { self.email = email.downcase }
+    has_many :chat_rooms, dependent: :destroy
+    has_many :messages, dependent: :destroy
+    has_many :match_players
+    has_many :matches,through: :match_players
 
    	validates :name,  presence: true, length: { maximum: 50 }
      VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -17,6 +21,9 @@ class Player < ApplicationRecord
    		self.tasks.count
    	end
 
-  has_many :match_players
-  has_many :matches,through: :match_players
+    def name
+      email.split('@')[0]
+    end
+
+
 end
