@@ -1,7 +1,23 @@
 <h1><%= @chat_room.title %></h1>
 
 <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-  <%= render @chat_room.messages %>
+  <div class="card">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-1">
+          
+        </div>
+        <div class="col-md-11">
+          <p class="card-text">
+            <span class="text-muted"><%= message.player.name %> at <%= message.timestamp %> says</span><br>
+            <%= message.body %>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 <hr>
