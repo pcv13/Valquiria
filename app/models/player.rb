@@ -21,9 +21,7 @@ class Player < ApplicationRecord
    		self.tasks.count
    	end
 
-    def name
-      email.split('@')[0]
-    end
+  
 
 
 end
