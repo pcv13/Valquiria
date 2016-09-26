@@ -1,9 +1,8 @@
 class MatchesController < ApplicationController
 
 def index
-@matches=Match.all
-@games = Game.all
 
+@matches = Match.paginate(:page => params[:page])
 end
 
 
@@ -74,6 +73,10 @@ end
 def valquiria
   @match=Match.find(params[:id])
 end
+
+
+
+
 
 private
 

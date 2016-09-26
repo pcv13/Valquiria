@@ -5,7 +5,8 @@ class Api::V1::MatchesController < ApplicationController
   @matches=Match.all
   @games = Game.all
 
-  render json: @matches
+
+  render json: @games
 
 
   end

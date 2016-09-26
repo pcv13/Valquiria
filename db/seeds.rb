@@ -16,30 +16,3 @@ games = Game.create([
     {name: "The World of Darkness (Warewolf)",image:"http://www.juegosderoles.com/wp-content/uploads/2013/09/vampiro2.jpg"},
     {name: "Traveller",image:"http://2.bp.blogspot.com/-r_E-KPIOJJI/VAjiNc1rcVI/AAAAAAAAAJ8/za_ZygNatjU/s1600/Marca%2BEspiral.PNG"},
    {name: "Fiasco",image:"https://rolentuidioma.files.wordpress.com/2014/11/fiasco-back-cover2.png"}])
-
-player = Player.create([{name: "Rocio", email: "Rocio@mail.com",password: "12345678" },
-    {name: "Pablo", email: "Pablo@mail.com",password: "12345678" },
-    {name: "Carlos", email: "Carlos@mail.com",password: "12345678" }])
-
-
-
-puts "seeds created"
-
-
-p1 = Player.first
-
-p2 = Player.second
-
-p3 = Player.last
-
-m1 = Match.first
-
-m2 = Match.second
-
-p1.matches.push(Match.first)
-p2.matches.push(Match.first)
-p3.matches.push(Match.first)
-
-p1.matches.push(Match.second)
-p2.matches.push(Match.second)
-p3.matches.push(Match.second)

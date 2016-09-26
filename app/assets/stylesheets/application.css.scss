@@ -12,7 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require animate
  */
+
+// Import cerulean variables
+// @import "bootswatch/cerulean/variables";
+// //cambiar el celurian por el tema que queramos
+// // And finally bootswatch style itself
+// @import "bootswatch/cerulean/bootswatch";
+
+@import "font-awesome";
+
+
 a {
   text-decoration: none;
   color:#cccccc;

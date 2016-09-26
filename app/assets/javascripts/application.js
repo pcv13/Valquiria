@@ -13,3 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require proxy.js
+//= require_tree .

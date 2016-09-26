@@ -6,7 +6,9 @@
 
       <p>
         <input  type="button" class="btn_menu" onclick="#" value="BUSCAR">
-        <button class="btn_menu"> <%= link_to "CREAR" ,new_match_path%> </button>
+        <%=link_to new_match_path do%>
+        <button class="btn_menu"> CREAR </button>
+        <%end%>
       </p>
 
       <h1>Match</h1>
@@ -25,19 +27,21 @@
         <p class="text_gray">GAME:</p>
 
         <p>  <select id=game name="select">
-            <option value=1>LLamada de cthulh </option>
-            <option value=2>Savage Worlds </option>
-            <option value=3>GURPS </option>
-            <option value=4>The World of Darkness (Vampire) </option>
-            <option value=5>The World of Darkness (Mage) </option>
-            <option value=6>The World of Darkness (Mage) </option>
-            <option value=7>The World of Darkness (Mage) </option>
-            <option value=8>Fiasco </option>
+            <option value=1 id='LLamada de cthulh'>LLamada de cthulh </option>
+            <option value=2 id='Savage Worlds'>Savage Worlds </option>
+            <option value=3 id='GURPS'>GURPS </option>
+            <option value=4 id='The World of Darkness (Vampire)'>The World of Darkness (Vampire) </option>
+            <option value=5 id='The World of Darkness (Mage)'>The World of Darkness (Mage) </option>
+            <option value=6 id='The World of Darkness (warewolf)'>The World of Darkness (Warewolf) </option>
+            <option value=7 id='Traveller'>Traveller </option>
+            <option value=8 id='Fiasco'>Fiasco </option>
           </select> </p>
 
-            <input  type="button" class="btn_menu" onclick="" value="FILTRAR">
+            <input  type="button" class="btn_menu" id='filter' value="FILTRAR">
 
-            <table>
+
+
+              <table id="tableMatches">
                 <tr>
                   <th>Name</th>
                   <th>Game</th>
@@ -46,13 +50,19 @@
                 </tr>
                 <% @matches.each do |match| %>
                   <tr id= "table">
-                    <td><%= link_to(match.name, match_path(match)) %></td>
-                    <td><%= match.game.name %></td>
-                    <td><%= match.language %></td>
-                    <td><%= match.created_at %></td>
+                    <div id="tableID">
+                      <td><%= link_to(match.name, match_path(match)) %></td>
+                      <td><%= match.game.name %></td>
+                      <td><%= match.language %></td>
+                      <td><%= match.created_at %></td>
+                    </div>
+
                   </tr>
                 <% end %>
+
+
               </table>
+                <%= will_paginate @matches %>
             </div>
       </div>
 </div>

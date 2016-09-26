@@ -1,0 +1,81 @@
+document.addEventListener('DOMContentLoaded', function(){
+  if(window.location.pathname == "/"){
+//dentro de este {}solo para la ruta de arriba
+    var url = '/api/v1/matches/filter'
+
+    document.getElementById("filter").addEventListener("click", function(){
+        proxy('get' , url, "json" ).then(filter);
+
+    });
+  }
+})
+
+
+    function filter(response) {
+          var match_list=document.getElementsByTagName('td')
+
+      for (var i = 0; i < match_list.length; i++) {
+        $(match_list[i]).text("");
+
+      }
+
+      var language =document.getElementById("language").value
+      var game =document.getElementById("game").value
+      var matches_filtered=[]
+      var table = document.getElementById('tableMatches')
+      var row = table.insertRow(1)
+      var celName = row.insertCell(0)
+      var celGame = row.insertCell(1)
+      var celLanguage = row.insertCell(2)
+      var celCreated = row.insertCell(3)
+
+      for (var i = 0; i < response.length; i++) {
+        if (language==response[i].language&& game==response[i].game_id) {
+          console.log("juego filtrado correcto");
+          matches_filtered.push(response[i])
+        }
+      }
+
+      // for (var i = 0; i < team.length; i++) {
+      //   team[i]
+      // }
+      var match_list=document.getElementById("table");
+
+
+      for (var i = 0; i < matches_filtered.length; i++) {
+        //document.getElementById(table).innerHTML=""
+        var d=parseInt(document.getElementById('game').value);
+
+        celName.innerHTML = "<a href='/matches/"+matches_filtered[i].id+"'> "+matches_filtered[i].name+"</a>"
+        celGame.innerHTML =document.getElementsByTagName("option")[6+d].id
+
+        celLanguage.innerHTML = matches_filtered[i].language;
+        celCreated.innerHTML = matches_filtered[i].created_at;
+
+      }
+    }
+
+
+
+
+    // function playerInMatch(size,max) {
+    //   if (size < max)
+    // }
+    //
+    // function time_to_match(start_time) {
+    //   if (start_time > Date.now())
+    // }
+    //
+    //
+    //
+    // function dices(Ndices,min,max) {
+    //   var arrayDice=[]
+    //   var total= 0
+    //   for (var i = 0; i < Ndices; i++) {
+    //     var dice = Math.floor(Math.random() * (max)) + min;
+    //     var total= total+dice;
+    //     arrayDice.push(dice);
+    //   }
+    // }
+    //
+    //
