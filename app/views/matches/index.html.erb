@@ -1,15 +1,18 @@
-<h1 class="title">VALQUIRIA</h1>
 
 
+    <h1 class="title">VALQUIRIA</h1>
+<div class="wrapper_bottom ">
+  <p>
+    <input  type="button" class="btn_menu" id='buscar' value="BUSCAR">
+    <%=link_to new_match_path do%>
+    <button class="btn_menu"> CREAR </button>
+    <%end%>
+  </p>
+</div>
+<img id='logo_index' src="/LOGOTIPO-VALQUIRIA.png" alt="" >
+</div>
+    <div class = "wrapper_index" id='busqueda'>
 
-    <div class = "wrapper">
-
-      <p>
-        <input  type="button" class="btn_menu" onclick="#" value="BUSCAR">
-        <%=link_to new_match_path do%>
-        <button class="btn_menu"> CREAR </button>
-        <%end%>
-      </p>
 
       <h1>Match</h1>
 
@@ -64,8 +67,6 @@
               </table>
                 <%= will_paginate @matches %>
             </div>
-      </div>
-</div>
   </body>
 
 </html>

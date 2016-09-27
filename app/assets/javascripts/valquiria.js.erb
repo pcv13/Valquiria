@@ -3,12 +3,30 @@ document.addEventListener('DOMContentLoaded', function(){
 //dentro de este {}solo para la ruta de arriba
     var url = '/api/v1/matches/filter'
 
+
     document.getElementById("filter").addEventListener("click", function(){
         proxy('get' , url, "json" ).then(filter);
-
     });
+
+    document.getElementById("buscar").addEventListener("click",m )
+
+
+}})
+
+function m(){
+    var e = document.getElementById('busqueda');
+    var d = document.getElementById('logo_index');
+
+    if (e.style.display == 'block' || e.style.display==''){
+      e.style.display = (e.style.display == 'none') ? 'block' : 'none';
+      d.style.display = 'block';
+    }
+    else{
+      e.style.display = 'block';
+      d.style.display = (d.style.display == 'none') ? 'block' : 'none';
+    };
   }
-})
+
 
 
     function filter(response) {

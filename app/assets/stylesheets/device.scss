@@ -3,27 +3,65 @@ body{
 
 }
 
-.wrapper{
 
-
-
+.wrapper_bottom{
   width:420px;
   margin:0 auto;
+  //opacity: 0.5;
   // margin-left: 3%;
   // display: inline-block;  parameter imagen fondo
  text-decoration:none;
- margin-bottom: 1%;
+ margin-bottom: 5%;
+ text-align: center;
+border-radius:7%;
+opacity: 1.5;
 }
 
+.wrapper{
+  width:420px;
+  margin:0 auto;
 
+  //opacity: 0.5;
+  // margin-left: 3%;
+  // display: inline-block;  parameter imagen fondo
+ text-decoration:none;
+ margin-bottom: 5%;
+ text-align: center;
+ background-color: rgba(0, 0, 0, 0.3);
+border-radius:7%;
+opacity: 1.5;
+}
+
+.wrapper_index{
+  width:420px;
+  margin:0 auto;
+    display: none;
+  //opacity: 0.5;
+  // margin-left: 3%;
+  // display: inline-block;  parameter imagen fondo
+ text-decoration:none;
+ margin-bottom: 5%;
+ text-align: center;
+ background-color: rgba(0, 0, 0, 0.3);
+border-radius:7%;
+opacity: 1.5;
+}
 .title{
   font:70px Oswald;
 
 }
 
+#logo{
+    background-image:url(asset-path("LOGOTIPO-VALQUIRIA.png"));
+    background-repeat: no-repeat;
+    align-items: center;
+    opacity: 0.6;
+    margin-left: 16%;
+}
+
 h1{
   text-align:center;
-  padding:30px 0px 0px 0px;
+  padding:30px 0px 21px 0px;
   font:25px Oswald;
   color:#d07133;
   text-transform:uppercase;
@@ -53,10 +91,11 @@ h1{
 table{
   width:100%;
   text-align: center;
+  margin-bottom: 5%;
 }
 
 input[type="text"],input[type="email"],input[type="password"],button{
-  width:98%;
+  width:58%;
   padding:15px 0px 15px 8px;
   border-radius:5px;
   box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
@@ -71,10 +110,11 @@ input[type="text"],input[type="email"],input[type="password"],button{
 
 
 input[type="submit"],input[type="button"],button{
-  width:100%;
+  width:40%;
   padding:15px;
   border-radius:5px;
   outline:none;
+  margin-bottom: 3%;
 
   background-image: linear-gradient(#ff8300 0%, #de5800 100%);
   font:14px Oswald;
@@ -95,10 +135,29 @@ input[type="submit"],input[type="button"],button{
   display: inline-block;
 
 }
+.image_chat{
+  width:20px;
+  height: 20px;
+
+}
+.card{
+  width: 50%;
+  margin-left: 35%;
+}
+
+#logo_nav{
+
+width: 69px;
+height: 57px;
+display: inline-block;
+margin-left: 92%;
+margin-bottom: -23px;
+margin-top: -42px;
+}
 img{
   width:30%;
   height: 36%;
-  margin-left: 32%;
+  margin-left: 35%;
   margin-right: 32%;
   margin-bottom: 1%;
 }
@@ -118,11 +177,14 @@ button:hover{
   cursor:pointer;
 }
 
+#filter{
 
+  margin-left: 0%;
+}
 p >.btn_menu{
   display: inline-block;;
   width:40%;
-  margin-top: 25%;
+  margin-top: 10%;
   margin-left: 4%;
   margin-right: 5%;
   text-decoration:none;
@@ -130,7 +192,7 @@ p >.btn_menu{
 .btn_menu{
   display: inline-block;;
   width:40%;
-  margin-top: 25%;
+  margin-top: 10%;
   margin-left: 4%;
   margin-right: 5%;
   text-decoration:none;
@@ -139,8 +201,6 @@ a{
     text-decoration:none;
     color: white;
 }
-
-
 footer{
   background:#8e6548;
   opacity: 0.5;
@@ -156,5 +216,6 @@ footer{
   overflow-y: auto;
   .avatar {
     margin: 0.5rem;
+    width: 50;
   }
 }

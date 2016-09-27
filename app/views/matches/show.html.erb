@@ -18,18 +18,21 @@
 
 <img src="<%= @match.game.image %>" alt="rss feed" />
 
-<%if(@match.players.size < @match.maximum_players || @match.players.include?(current_player) )%>
-  <%if @match.star_time > Time.now %>
+<div class="wrapper_bottom">
 
-    <%if @match.players.include?(current_player)%>
-       <button class="btn_menu"> <%= link_to "ABANDONAR" ,join_match_path, method: :post %> </button>
+  <%if(@match.players.size < @match.maximum_players || @match.players.include?(current_player) )%>
+    <%if @match.star_time > Time.now %>
+
+      <%if @match.players.include?(current_player)%>
+         <button class="btn_menu"> <%= link_to "ABANDONAR" ,join_match_path, method: :post %> </button>
+      <%else%>
+         <button class="btn_menu"> <%= link_to "Unirse" ,join_match_path, method: :post %> </button>
+      <%end%>
+
     <%else%>
-       <button class="btn_menu"> <%= link_to "Unirse" ,join_match_path, method: :post %> </button>
+     <button class="btn_menu"> <%= link_to "Entrar en partida" ,chat_room_path, method: :get %> </button>
     <%end%>
-
   <%else%>
-   <button class="btn_menu"> <%= link_to "Entrar en partida" ,chat_room_path, method: :get %> </button>
-  <%end%>
-<%else%>
-  <h1>LA PARTIDA ESTA LLENA  <h1>
-<%end %>
+    <h1>LA PARTIDA ESTA LLENA  <h1>
+  <%end %>
+</div>
