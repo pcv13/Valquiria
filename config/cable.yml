@@ -9,6 +9,7 @@ production:
   adapter: redis
   url: add-hereyour-redis-url-from-heroku-redis-to-go-addon
 
+
 development:
   adapter: async
 
