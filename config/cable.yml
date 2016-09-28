@@ -17,4 +17,4 @@ test:
   adapter: async
 
 adapter: redis
-url: https://fierce-inlet-15233.herokuapp.com/
+url: redis://redistogo:d993d9425e29216d02909b8d6073c8b5@sculpin.redistogo.com:10005
