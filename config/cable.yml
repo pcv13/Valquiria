@@ -7,7 +7,7 @@
 # Action Cable uses Redis by default to administer connections, channels, and sending/receiving messages over the WebSocket.
 production:
   adapter: redis
-  url: add-hereyour-redis-url-from-heroku-redis-to-go-addon
+  url: redis://redistogo:d993d9425e29216d02909b8d6073c8b5@sculpin.redistogo.com:10005
 
 
 development:
