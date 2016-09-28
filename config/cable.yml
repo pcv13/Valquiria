@@ -17,4 +17,4 @@ test:
   adapter: async
 
 adapter: redis
-url: YOUR_URL
+url: https://fierce-inlet-15233.herokuapp.com/
