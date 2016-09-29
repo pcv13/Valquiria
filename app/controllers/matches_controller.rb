@@ -21,10 +21,10 @@ def create
   @games =Game.all
   @match = Match.new(match_params)
   @match.owner_id = current_player.id
-  current_player.matches.push(@match)
   respond_to do |format|
     if @match.save
       format.html { redirect_to @match, notice: 'Match was successfully created.' }
+      current_player.matches.push(@match)
       create_chat(@match.name)
     else
       format.html { render :new }
