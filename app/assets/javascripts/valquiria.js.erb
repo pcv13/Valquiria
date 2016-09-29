@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function(){
   if(window.location.pathname == "/"){
 //dentro de este {}solo para la ruta de arriba
@@ -8,18 +10,18 @@ document.addEventListener('DOMContentLoaded', function(){
         proxy('get' , url, "json" ).then(filter);
     });
 
-    document.getElementById("buscar").addEventListener("click",m )
+    document.getElementById("buscar").addEventListener("click",change_log_and_form )
 
 
 }})
 
-function m(){
-    var d = document.getElementById('busqueda');
-    var e = document.getElementById('logo_index');
+function change_log_and_form(){
+    var form = document.getElementById('busqueda');
+    var logo = document.getElementById('logo_index');
 
-    if (e.style.display == 'block' || e.style.display==''){
-      e.style.display = (e.style.display == 'none') ? 'block' : 'none';
-      d.style.display = 'block';
+    if (logo.style.display == 'block' || logo.style.display==''){
+      logo.style.display = (logo.style.display == 'none') ? 'block' : 'none';
+      form.style.display = 'block';
     }
   }
 
@@ -27,69 +29,47 @@ function m(){
 
     function filter(response) {
           var match_list=document.getElementsByTagName('td')
+          var language =document.getElementById("language").value
+          var game =document.getElementById("game").value
+          var matches_filtered=[]
+          var table = document.getElementById('tableMatches')
 
-      for (var i = 0; i < match_list.length; i++) {
-        $(match_list[i]).text("");
+          delete_row(match_list)
+          push_matches(language,response,game,matches_filtered)
+          print_matches(matches_filtered ,table)
 
+    }
+
+  function delete_row(array) {
+    for (var i = 0; i < array.length; i++) {
+    $(array[i]).text("");
+    }
+  }
+
+  function push_matches(language,response,game,array) {
+    for (var i = 0; i < response.length; i++) {
+      if (language==response[i].language&& game==response[i].game_id) {
+        console.log("juego filtrado correcto");
+        array.push(response[i])
+        console.log(array);
       }
+    }
+  }
 
-      var language =document.getElementById("language").value
-      var game =document.getElementById("game").value
-      var matches_filtered=[]
-      var table = document.getElementById('tableMatches')
-      var row = table.insertRow(1)
+  function print_matches(array,table) {
+    for (var i = 0; i < array.length; i++) {
+      //document.getElementById(table).innerHTML=""
+      var row = table.insertRow(1+i)
       var celName = row.insertCell(0)
       var celGame = row.insertCell(1)
       var celLanguage = row.insertCell(2)
       var celCreated = row.insertCell(3)
+      var name=parseInt(document.getElementById('game').value);
 
-      for (var i = 0; i < response.length; i++) {
-        if (language==response[i].language&& game==response[i].game_id) {
-          console.log("juego filtrado correcto");
-          matches_filtered.push(response[i])
-        }
-      }
+      celName.innerHTML = "<a href='/matches/"+array[i].id+"'> "+array[i].name+"</a>"
+      celGame.innerHTML =document.getElementsByTagName("option")[6+name].id
+      celLanguage.innerHTML = array[i].language;
+      celCreated.innerHTML = array[i].created_at;
 
-      // for (var i = 0; i < team.length; i++) {
-      //   team[i]
-      // }
-      var match_list=document.getElementById("table");
-
-
-      for (var i = 0; i < matches_filtered.length; i++) {
-        //document.getElementById(table).innerHTML=""
-        var d=parseInt(document.getElementById('game').value);
-
-        celName.innerHTML = "<a href='/matches/"+matches_filtered[i].id+"'> "+matches_filtered[i].name+"</a>"
-        celGame.innerHTML =document.getElementsByTagName("option")[6+d].id
-
-        celLanguage.innerHTML = matches_filtered[i].language;
-        celCreated.innerHTML = matches_filtered[i].created_at;
-
-      }
     }
-
-
-
-
-    // function playerInMatch(size,max) {
-    //   if (size < max)
-    // }
-    //
-    // function time_to_match(start_time) {
-    //   if (start_time > Date.now())
-    // }
-    //
-    //
-    //
-    // function dices(Ndices,min,max) {
-    //   var arrayDice=[]
-    //   var total= 0
-    //   for (var i = 0; i < Ndices; i++) {
-    //     var dice = Math.floor(Math.random() * (max)) + min;
-    //     var total= total+dice;
-    //     arrayDice.push(dice);
-    //   }
-    // }
-    //
-    //
+  }
