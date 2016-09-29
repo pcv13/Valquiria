@@ -7,7 +7,7 @@ select {
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #2c3e50;
+  background: rgb(167, 85, 31);
   background-image: none;
 }
 /* Custom Select */
@@ -22,6 +22,7 @@ select {
       overflow: hidden;
       border-radius: .25em;
 }
+
 select {
   width: 100%;
   height: 100%;
@@ -29,6 +30,7 @@ select {
   padding: 0 0 0 .5em;
   color: #fff;
   cursor: pointer;
+  border-radius: 21px;
 }
 select::-ms-expand {
   display: none;
@@ -41,12 +43,12 @@ select::-ms-expand {
   right: 0;
   bottom: 0;
   padding: 0 1em;
-  background: #34495e;
+  background: #a7551f;
   pointer-events: none;
 }
 /* Transition */
 .select:hover::after {
-  color: #f39c12;
+  color: #a7551f;;
 }
 .select::after {
   -webkit-transition: .25s all ease;
@@ -54,7 +56,11 @@ select::-ms-expand {
   transition: .25s all ease;
 }
 
-
+.select_create{
+  width: 50%;
+  background:rgba(0, 0, 0, 0);
+  margin-left: 26%;
+}
 
 
 
@@ -64,7 +70,9 @@ body{
 
 }
 
-
+th{
+color: #a7551f;
+}
 .wrapper_bottom{
   width:420px;
   margin:0 auto;
@@ -96,7 +104,7 @@ opacity: 1.5;
 .wrapper_index{
   width:420px;
   margin:0 auto;
-    display: none;
+  display: none;
   //opacity: 0.5;
   // margin-left: 3%;
   // display: inline-block;  parameter imagen fondo
@@ -118,6 +126,7 @@ opacity: 1.5;
     align-items: center;
     opacity: 0.6;
     margin-left: 16%;
+    display: block;
 }
 
 h1{
@@ -153,6 +162,7 @@ table{
   width:100%;
   text-align: center;
   margin-bottom: 5%;
+  color: #ccc;
 }
 
 input[type="text"],input[type="email"],input[type="password"],button{

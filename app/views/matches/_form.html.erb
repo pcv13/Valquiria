@@ -34,7 +34,7 @@
         </div>
 
 
-        <div class="field text_gray ">
+        <div class="field text_gray select_create">
           <%= f.label :language %><br>
           <%= f.select(:language) do %>
             <% [['Spanish','Spanish'],['English','English'],['Portuguese','Portuguese'],['Russian','Russian'],['German','German'],['French','French'],['Italian','Italian']].each do |c| -%>
@@ -42,7 +42,7 @@
             <% end %>
           <% end %>  </div>
 
-          <div class="field text_gray">
+          <div class="field text_gray select_create">
             <%= f.label :maximum_players %><br>
             <%= f.select(:maximum_players) do %>
               <% [['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9']].each do |c| -%>
@@ -50,7 +50,7 @@
               <% end %>
             <% end %>  </div>
 
-        <div class="field text_gray">
+        <div class="field text_gray select_create">
           <%= f.label :game_id %><br>
           <%= f.collection_select(:game_id, Game.all, :id, :name) %>
         </div>
